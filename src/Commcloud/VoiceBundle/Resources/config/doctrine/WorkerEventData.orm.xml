@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="Commcloud\VoiceBundle\Repository\WorkerEventDataRepository" name="Commcloud\VoiceBundle\Entity\WorkerEventData">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="workersid" type="string" column="workersid" length="255"/>
+    <field name="workername" type="string" column="workername" length="255"/>
+    <field name="workerattributes" type="string" column="workerattributes" length="255" nullable="true"/>
+    <field name="workeractivitysid" type="string" column="workeractivitysid" length="255" nullable="true"/>
+    <field name="workeractivityname" type="string" column="workeractivityname" length="255" nullable="true"/>
+    <field name="workertimeinprevactivity" type="integer" column="workertimeinprevactivity" nullable="true"/>
+    <field name="workerprevactivitysid" type="string" column="workerprevactivitysid" length="255" nullable="true"/>
+  </entity>
+</doctrine-mapping>

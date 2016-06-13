@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="Commcloud\VoiceBundle\Repository\HtWorkeractdurationDataRepository" name="Commcloud\VoiceBundle\Entity\HtWorkeractdurationData">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="workersid" type="string" column="workersid" length="255"/>
+    <field name="start_time" type="datetimetz" column="starttime" nullable="true"/>
+    <field name="end_time" type="datetimetz" column="end_time" nullable="true"/>
+    <field name="task_assigned" type="integer" column="task_assigned"/>
+    <field name="activitysid" type="string" column="activitysid" length="255"/>
+    <field name="activityname" type="string" column="activityname" length="255"/>
+    <field name="min_duration" type="integer" column="min_duration"/>
+    <field name="max_duration" type="integer" column="max_duration"/>
+    <field name="avg_duration" type="integer" column="avg_duration"/>
+    <field name="total_duration" type="integer" column="total_duration"/>    
+  </entity>
+</doctrine-mapping>

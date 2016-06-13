@@ -1,0 +1,38 @@
+Author: Vinit Dave
+Last Modified Date: March 23, 2016
+
+To Generate Entity:
+php bin/console doctrine:generate:entity
+
+To Generate Getters and Setters for a Entity:
+php bin/console doctrine:generate:entities <full path of the entity name/location>
+
+To generate all entities in the AppBundle:
+php bin/console doctrine:generate:entities AppBundle
+
+To generate all entities of bundles in the Acme namespace: 
+php bin/console doctrine:generate:entities Acme
+
+To create/generate database schema
+php bin/console doctrine:schema:update --force
+
+To debug controller routing:
+php bin/console debug:router
+
+To perform assetic dump of web assets:
+php bin/console assetic:dump
+
+To clear cache:
+php bin/console cache:clear --env=prod
+
+To get logs
+tail -f var/logs/dev.logs
+
+GitHub Integration Commands
+git init
+git remote add origin git@github.com:vinitdave49/mytestarea.git
+git add .
+git commit -m "First commit"
+git push -u origin master
+or
+git push -f origin master

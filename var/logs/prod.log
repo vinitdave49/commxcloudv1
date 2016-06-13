@@ -1,0 +1,1 @@
+[2016-06-13 14:09:18] assetic.ERROR: The template "CommcloudVoiceBundle:Agent:demoindex.html.twig" contains an error: Unable to find file "@CommcloudVoiceBundle/Resources/public/js/twiliochat.js". [] []

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="Commcloud\VoiceBundle\Repository\HtReservationDataRepository" name="Commcloud\VoiceBundle\Entity\HtReservationData">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="resourceid" type="string" column="resourceid" length="255"/>
+    <field name="start_time" type="datetimetz" column="starttime" nullable="true"/>
+    <field name="end_time" type="datetimetz" column="end_time" nullable="true"/>
+    <field name="reservation_accepted" type="integer" column="reservation_accepted"/>
+    <field name="reservations_canceled" type="integer" column="reservations_canceled"/>
+    <field name="reservations_created" type="integer" column="reservations_created"/>
+    <field name="reservations_timed_out" type="integer" column="reservations_timed_out"/>
+    <field name="reservations_rejected" type="integer" column="reservations_rejected"/>
+    <field name="reservations_rescinded" type="integer" column="reservations_rescinded"/>
+  </entity>
+</doctrine-mapping>

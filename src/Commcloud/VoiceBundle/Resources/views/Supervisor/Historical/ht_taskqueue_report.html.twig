@@ -1,0 +1,54 @@
+{% extends 'CommcloudVoiceBundle:Supervisor:base_report.html.twig' %}
+{% block title %}Historical Task Queue Report{% endblock %}
+{% block input %}StartDate: {{ starttime }}  <br> EndDate: {{ endtime }} <br> Task Queue Name: {{ taskqueuename }}{% endblock %}
+{% block div %}
+    <div class="row">
+        <div class="col-sm-12">
+            <table id="table" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="table_info">
+                <thead>
+                    <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="DateTime: activate to sort column descending">DateTime</th>
+                        <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Taskqueue Name: activate to sort column ascending">Taskqueue Name</th>                        
+                        <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Tasks Entered: activate to sort column ascending">Tasks Entered</th>
+                        <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Tasks Cancelled: activate to sort column ascending">Tasks Cancelled</th>
+                        <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Tasks Deleted: activate to sort column ascending">Tasks Deleted</th>
+                        <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Tasks Moved: activate to sort column ascending">Tasks Moved</th>
+                        <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Avg. Task Acceptance Time: activate to sort column ascending">Avg. Task Acceptance Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in htdata %}
+                        <tr role="row">
+                            <td class="sorting_1">{{ data.getStartTime()|date('Y-m-d H:i') }}</td>
+                            <td>{{ taskqueuename }}</td>
+                            <td>{{ data.getTaskEntered() }}</td>
+                            <td>{{ data.getTaskCanceled() }}</td>
+                            <td>{{ data.getTaskDeleted() }}</td>
+                            <td>{{ data.getTaskMoved() }}</td>
+                            <td>{{ data.getAvgTaskAcceptanceTime() }}</td>
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts%}    
+<script type="text/javascript">
+    $('#table').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "scrollX": true
+    });
+    
+    $( document ).ready(function() {
+    console.log( "ready!" );
+     $("#loadingIMG").css("display", "none"); 
+ });
+ </script>
+ {% endblock %}

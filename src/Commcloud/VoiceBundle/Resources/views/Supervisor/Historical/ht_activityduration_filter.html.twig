@@ -1,0 +1,55 @@
+{% extends 'CommcloudVoiceBundle:Supervisor:base_filter.html.twig' %}
+{% block title %}Historical Activity Duration Report{% endblock %}
+{% block div %}                                
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>Worker Name</label>
+            <select id="worker" class="form-control">
+                {% for worker in workers %}
+                    <option value="{{ worker.sid }}"> {{ worker.friendly_name }}</option>
+                {% endfor %}
+            </select>
+        </div>                                
+    </div>
+{% endblock %}
+{% block button %}
+<div id="loadingIMG" class="loading" runat="server" style="display:none;">Loading&#8230;</div> 
+    <button type="button" id="runreport" name="runreport" class="btn btn-block btn-primary" >Run Report</button>
+{% endblock %}
+{% block reportcontainer %}
+<div class="box-body" id="reportcontainer">
+    
+</div>
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript">
+    var jsonDateData = {};
+
+    $('#runreport').click(function(){
+  $("#loadingIMG").css("display", "block");
+        if(jsonDateData['startdatetime'] && jsonDateData['enddatetime']){
+            //alert('StartDateTime: '+jsonDateData['startdatetime']);
+            $("#alertbox").hide();
+            $('.form-control').each(function()
+                {
+                   var key = $(this).attr('id');
+                   jsonDateData[key] =$(this).val();
+               }
+            );
+            //console.log(jsonDateData);
+            $('#reportcontainer').load('{{ path('load_ht_activityduration_report') }}', jsonDateData), function( response, status, xhr ) 
+                {
+                    if ( status == "error" ) 
+                    {
+                        var msg = "Sorry but there was an error: ";
+                        console.log( msg + xhr.status + " " + xhr.statusText );
+                         $("#loadingIMG").css("display", "none"); 
+                    }
+                }    
+        }else{
+            $("#alertbox").show();
+            $("#loadingIMG").css("display", "none");
+        }
+    });
+</script> 
+{% endblock %}

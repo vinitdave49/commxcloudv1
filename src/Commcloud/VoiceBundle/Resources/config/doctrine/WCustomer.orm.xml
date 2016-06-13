@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="Commcloud\VoiceBundle\Repository\WCustomerRepository" name="Commcloud\VoiceBundle\Entity\WCustomer">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="userid" type="string" column="userid" length="255"/>
+    <field name="voiceprintid" type="string" column="voiceprintid" length="255"/>
+    <field name="trained" type="string" column="trained" length="255"/>
+    <field name="fullname" type="string" column="fullname" length="255"/>
+    <field name="phonenumber" type="string" column="phonenumber" length="255"/>
+    <field name="email" type="string" column="email" length="255"/>
+    <field name="balance" type="string" column="balance" length="255"/>
+  </entity>
+</doctrine-mapping>

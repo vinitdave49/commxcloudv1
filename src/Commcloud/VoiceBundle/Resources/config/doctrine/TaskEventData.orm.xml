@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="Commcloud\VoiceBundle\Repository\TaskEventDataRepository" name="Commcloud\VoiceBundle\Entity\TaskEventData">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="tasksid" type="string" column="tasksid" length="255" nullable="true"/>
+    <field name="taskattributes" type="string" column="taskattributes" length="255" nullable="true"/>
+    <field name="taskage" type="integer" column="taskage" nullable="true"/>
+    <field name="taskpriority" type="integer" column="taskpriority" nullable="true"/>
+    <field name="taskassignmentstatus" type="string" column="taskassignmentstatus" length="255" nullable="true"/>
+    <field name="taskcancelledreason" type="string" column="taskcancelledreason" length="255" nullable="true"/>
+    <field name="taskcompletedreason" type="string" column="taskcompletedreason" length="255" nullable="true"/>
+  </entity>
+</doctrine-mapping>

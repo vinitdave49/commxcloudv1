@@ -1,0 +1,83 @@
+<section class="content">
+    <div class="row">
+        <div class="box box-primary">
+            <div class="alert alert-danger alert-dismissible" id="alertbox" style="margin:10px;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                One or more Input parameters have not been provided for the report to run. Please select all the parameters and re-run the report.
+            </div>            
+            <div class="box-header">
+                <h3 class="box-title">{% block title %}Report{% endblock %}</h3>
+            </div>
+            <div class="box-body">
+                <div class="form-group">
+                    <div class="row">
+                        {#<div class="col-md-3">#}
+                            {#<div class="form-group">#}
+                                {#<label>Minutes</label>#}
+                                {#<select id="minutes" class="form-control">#}
+                                {#    <option value="0" selected="selected"></option>#}
+                                {#    <option value="15">Default(15mins)</option>#}
+                                {#    <option value="240">Last 4 hours</option>#}
+                                {#    <option value="480">Last 8 hours</option>                                     #}
+                                {#</select>#}
+                                {#<br>#}
+                            {#</div>#}
+                        {#</div>#}
+                        {% block div %}
+                        {% endblock %}
+                        <input type="hidden" id="path" class="form-control" name="path" value="123"/>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            	<label>Date and Time range:</label>
+                            	<div class="input-group">
+                            		<div class="input-group-addon">
+                            			<i class="fa fa-clock-o"></i>
+                            		</div>
+                            		<input type="text" class="form-control pull-right" id="reportdatetime">
+                            	</div>
+                            	<br>
+                            </div>                            
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Run Report</label>
+                                {% block button %}
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% block reportcontainer %}
+            {% endblock %}
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    $("#alertbox").hide();
+    
+    $("#reportdatetime").daterangepicker({
+        "showDropdowns": true,
+        "timePicker": true,
+        "timePicker24Hour": true,
+        "timePickerIncrement": 30,
+        "locale":{
+            'format': 'MM/DD/YYYY hh:mm'    
+        },
+        "ranges": {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+    }, function(start, end, label) {
+        console.log('New date range selected: ' + start.format("YYYY-MM-DD") + ' to ' + end.format("YYYY-MM-DD") + '(predefined range:' + label + ')');
+        jsonDateData['startdatetime'] = start.format("YYYY-MM-DD hh:mm");
+        jsonDateData['enddatetime'] = end.format("YYYY-MM-DD hh:mm");
+    });
+</script>
+{% block javascripts %}
+{% endblock %}

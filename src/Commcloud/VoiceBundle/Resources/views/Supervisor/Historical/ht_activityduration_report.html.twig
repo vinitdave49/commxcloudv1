@@ -1,0 +1,53 @@
+{% extends 'CommcloudVoiceBundle:Supervisor:base_report.html.twig' %}
+{% block title %}Historical Activity Duration Report{% endblock %}
+{% block input %}StartDate: {{ startdate }}  <br> EndDate: {{ enddate }} <br> Agent: {{ workername }}{% endblock %}
+{% block div %}
+    <div class="row">
+        <div class="col-sm-12">
+            <table id="table" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="table_info">
+                <thead>
+                    <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="DateTime: activate to sort column descending">DateTime</th>
+                        <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Worker Name: activate to sort column ascending">Worker Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Activity Name: activate to sort column ascending">Activity Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Min. Duration: activate to sort column ascending">Min. Duration</th>
+                        <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Max. Duration: activate to sort column ascending">Max. Duration</th>
+                        <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Avg. Duration: activate to sort column ascending">Avg. Duration</th>
+                        <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Total Duration: activate to sort column ascending">Total Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in htdata %}
+                        <tr role="row">
+                            <td class="sorting_1">{{ data.getStartTime()|date('Y-m-d H:i') }}</td>
+                            <td>{{ workername }}</td>
+                            <td>{{ data.activityname }}</td>
+                            <td>{{ data.getMinDuration()  }}</td>
+                            <td>{{ data.getMaxDuration()  }}</td>
+                            <td>{{ data.getAvgDuration()  }}</td>
+                            <td>{{ data.getTotalDuration()  }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript">
+    $('#table').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "scrollX": true
+    });
+     
+     $( document ).ready(function() {
+     console.log( "ready!" );
+      $("#loadingIMG").css("display", "none"); 
+ });
+ </script>
+ {% endblock %}

@@ -1,0 +1,52 @@
+{% block content %}
+
+<div class="box box-primary">
+	<div class="box-header">
+		<h3 class="box-title">Historical Call List Report by Status and DateTime</h3>
+	</div>
+	<div class="box-body table-responsive no-padding">
+		<table id="table" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="table_info">
+			<thead>
+				<tr role="row">
+					<th class="sorting_asc" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Start Time: activate to sort column descending">Start Time</th>
+					<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="From: activate to sort column ascending">From</th>
+					<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="To: activate to sort column ascending">To</th>
+					<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Direction: activate to sort column ascending">Direction</th>
+					<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Status</th>
+					<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Call ID: activate to sort column ascending">Call ID</th>
+					<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Duration: activate to sort column ascending">Duration</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for call in calls %}
+				<tr role="row">
+					<td class="sorting_1">{{ call.start_time }}</td>
+					<td>{{ call.from }}</td>
+					<td>{{ call.to }}</td>
+					<td>{{ call.direction }}</td>
+					<td>{{ call.sid }}</td>
+					<td>{{ call.status }}</td>
+					<td>{{ call.duration }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+<script type="text/javascript">
+	$('#table').DataTable({
+		"paging": true,
+		"lengthChange": false,
+		"searching": false,
+		"ordering": true,
+		"info": true,
+		"autoWidth": false,
+		"scrollX": true
+	});
+	
+	  $( document ).ready(function() {
+    console.log( "ready!" );
+     $("#loadingIMG").css("display", "none"); 
+ });
+</script>
+{% endblock %}

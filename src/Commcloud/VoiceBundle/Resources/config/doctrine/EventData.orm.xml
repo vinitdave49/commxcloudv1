@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="Commcloud\VoiceBundle\Repository\EventDataRepository" name="Commcloud\VoiceBundle\Entity\EventData">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="eventtype" type="string" column="eventtype" length="255"/>
+    <field name="accountsid" type="string" column="accountsid" length="255"/>
+    <field name="workspacesid" type="string" column="workspacesid" length="255"/>
+    <field name="workspacename" type="string" column="workspacename" length="255"/>
+    <field name="eventdescription" type="string" column="eventdescription" length="255"/>
+    <field name="resourcetype" type="string" column="resourcetype" length="255"/>
+    <field name="resourcesid" type="string" column="resourcesid" length="255"/>
+    <field name="timestamp" type="string" column="timestamp" length="255"/>
+    <field name="workflowsid" type="string" column="workflowsid" length="255" nullable="true"/>
+    <field name="taskqueuesid" type="string" column="taskqueuesid" length="255" nullable="true"/>
+    <field name="reservationsid" type="string" column="reservationsid" length="255" nullable="true"/>
+    <field name="workersid" type="string" column="workersid" length="255" nullable="true"/>
+    <field name="tasksid" type="string" column="tasksid" length="255" nullable="true"/>    
+  </entity>
+</doctrine-mapping>

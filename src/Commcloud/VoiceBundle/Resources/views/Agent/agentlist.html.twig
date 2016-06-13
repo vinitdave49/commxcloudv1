@@ -1,0 +1,41 @@
+<section class="content">
+	<div class="row">
+		<div class="box box-primary">
+			<div class="box-header">
+				<h3 class="box-title">Agent List</h3>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<table id="agentTable" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="agentTable_info">
+						<thead>
+							<tr>
+								<th class="sorting_asc" tabindex="0" aria-controls="agentTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Name</th>
+								<th class="sorting" tabindex="0" aria-controls="agentTable" rowspan="1" colspan="1" aria-label="Skills: activate to sort column ascending">Skills</th>
+								<th class="sorting" tabindex="0" aria-controls="agentTable" rowspan="1" colspan="1" aria-label="Activity Status: activate to sort column ascending">Status</th>
+							</tr>
+						</thead>
+						<tbody>	
+							{% for worker in workers %}
+							<tr role="row">
+								<td class="sorting_1">{{ worker.friendly_name }}</td>
+								<td>{{ worker.attributes }}</td>
+								{% if worker.activity_name == "Idle" %}
+								<td><span class="label label-success">{{ worker.activity_name }}</span></td>
+								{% elseif worker.activity_name == "Offline" %}
+								<td><span class="label label-danger">{{ worker.activity_name }}</span></td>
+								{% else %}
+								<td><span class="label label-warning">{{ worker.activity_name }}</span></td>
+								{% endif %}
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+	$('#agentTable').DataTable();
+</script>
+

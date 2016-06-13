@@ -1,0 +1,18 @@
+get_Token() - Do ajax call to server for token generation
+set_Token() - Assign generated token to local variable for reuse
+initialize() - initialize local variable
+initialize_TwilioDevice() - setup twilio device
+initialize_Taskrouter() - setup taskrouter for worker
+commonHTMLUtilityFunction() - enable , disable, update content, click event etc.
+TwilioDeviceContainer - twilio device connect, diconnect, presence, incoming, ready , error
+TaskrouterContainer - worker ready, update; reservation created, updated, rejected, timeout, canceled
+
+
+token manager : manages all token related things like generate token , set token 
+ methods : get_Token, set_Token
+
+LOGS:
+
+1. TokenManager
+2. ChatManager
+3. VoiceManager

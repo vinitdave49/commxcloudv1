@@ -1,0 +1,27 @@
+'task_status_0':
+    color: "#F7464A"
+    highlight: "#FF5A5E"
+
+'task_status_1':
+    color: "#46BFBD"
+    highlight: "#5AD3D1"
+    
+'task_status_2':
+    color: "#FDB45C"
+    highlight: "#FFC870"
+
+'activity_status_0':
+    color: "#FDB45C"
+    highlight: "#FFC870"
+
+'activity_status_1':
+    color: "#46BFBD"
+    highlight: "#5AD3D1"
+    
+'activity_status_2':
+    color: "#FDB45C"
+    highlight: "#FFC870"
+    
+'activity_status_3':
+    color: "#2EBBB5"
+    highlight: "#96DDDA"

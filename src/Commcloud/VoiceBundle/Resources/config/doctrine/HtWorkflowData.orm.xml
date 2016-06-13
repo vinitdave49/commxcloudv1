@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="Commcloud\VoiceBundle\Repository\HtWorkflowDataRepository" name="Commcloud\VoiceBundle\Entity\HtWorkflowData">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="workflowsid" type="string" column="workflowsid" length="255"/>
+    <field name="start_time" type="datetimetz" column="starttime" nullable="true"/>
+    <field name="end_time" type="datetimetz" column="end_time" nullable="true"/>
+    <field name="task_entered" type="integer" column="task_entered"/>
+    <field name="task_canceled" type="integer" column="task_canceled"/>
+    <field name="task_deleted" type="integer" column="task_deleted"/>
+    <field name="task_moved" type="integer" column="task_moved"/>
+    <field name="tasks_timed_out_in_workfow" type="integer" column="tasks_timed_out_in_workfow"/>
+    <field name="avg_task_acceptance_time" type="integer" column="avg_task_acceptance_time"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,24 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: db_twilio
+    database_user: root
+    database_password: null
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: e7655878c273ac35baf2d2ad83975632c78e0ceb
+    debug_toolbar: true
+    debug_redirects: false
+    use_assetic_controller: true
+    sid: "AC0f18494502dee91457252ff7b2bada6a"
+    authToken: "2f430f7691acb543889ef3a721c1c096"
+    workspaceSid: "WSce7860a1dd3d977493b7e15bead4e320"
+    version: "2010-04-01"
+    retryattempts: 5
+    workerSid: "WK2d358d220ef9e662b9f3dd7c8cf85d7c"
+    workflowSid: "WW542a85c0b81a847430d95d3dbc75f8a5"
